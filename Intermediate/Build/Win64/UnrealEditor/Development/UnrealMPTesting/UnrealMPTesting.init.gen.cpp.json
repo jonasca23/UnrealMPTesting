@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealmptesting\\unrealmptesting.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\intermediate\\build\\win64\\unrealmptestingeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\intermediate\\build\\win64\\unrealeditor\\development\\unrealmptesting\\definitions.unrealmptesting.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

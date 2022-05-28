@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Source\\UnrealMPTesting\\UnrealMPTesting.Build.cs",
+		"C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Source\\UnrealMPTesting.Target.cs",
+		"C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Source\\UnrealMPTestingEditor.Target.cs"
+	],
+	"EngineVersion": "5.0.1"
+}

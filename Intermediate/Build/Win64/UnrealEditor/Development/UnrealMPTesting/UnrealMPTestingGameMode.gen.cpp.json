@@ -1,0 +1,19 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealmptesting\\unrealmptestinggamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\intermediate\\build\\win64\\unrealmptestingeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\intermediate\\build\\win64\\unrealeditor\\development\\unrealmptesting\\definitions.unrealmptesting.h",
+            "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\source\\unrealmptesting\\unrealmptestinggamemode.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\serverstatreplicator.generated.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gamemodebase.generated.h",
+            "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealmptesting\\unrealmptestinggamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

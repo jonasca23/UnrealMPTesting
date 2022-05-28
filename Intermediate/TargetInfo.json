@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "UnrealMPTesting",
+			"Path": "C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Source\\UnrealMPTesting.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "UnrealMPTestingEditor",
+			"Path": "C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Source\\UnrealMPTestingEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
