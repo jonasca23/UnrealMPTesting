@@ -7,6 +7,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AUnrealMPTestingCharacter
@@ -125,5 +126,28 @@ void AUnrealMPTestingCharacter::MoveRight(float Value)
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
+	}
+}
+
+void AUnrealMPTestingCharacter::OpenLobby()
+{
+	UWorld* World = GetWorld();
+	if (World)
+	{
+		World->ServerTravel("Game/ThirdPerson/Maps/Lobby?listen");
+	}
+}
+
+void AUnrealMPTestingCharacter::CallOpenLevel(const FString& Address)
+{
+	UGameplayStatics::OpenLevel(this, *Address);
+}
+
+void AUnrealMPTestingCharacter::CallClientTravel(const FString& Address)
+{
+	APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
+	if (PlayerController)
+	{
+		PlayerController->ClientTravel(Address, ETravelType::TRAVEL_Absolute);
 	}
 }

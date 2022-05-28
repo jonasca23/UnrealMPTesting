@@ -14,8 +14,20 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define UNREALMPTESTING_UnrealMPTestingCharacter_generated_h
 
 #define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_12_SPARSE_DATA
-#define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_12_RPC_WRAPPERS
-#define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execCallClientTravel); \
+	DECLARE_FUNCTION(execCallOpenLevel); \
+	DECLARE_FUNCTION(execOpenLobby);
+
+
+#define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execCallClientTravel); \
+	DECLARE_FUNCTION(execCallOpenLevel); \
+	DECLARE_FUNCTION(execOpenLobby);
+
+
 #define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAUnrealMPTestingCharacter(); \
