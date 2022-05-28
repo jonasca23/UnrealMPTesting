@@ -7,12 +7,15 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "Kismet/GameplayStatics.h"
+#include "OnlineSubsystem.h"
+#include "Interfaces/OnlineSessionInterface.h"
+#include "OnlineSessionSettings.h"
 
 //////////////////////////////////////////////////////////////////////////
 // AUnrealMPTestingCharacter
 
-AUnrealMPTestingCharacter::AUnrealMPTestingCharacter()
+AUnrealMPTestingCharacter::AUnrealMPTestingCharacter():
+	CreateSessionCompleteDelegate(FOnCreateSessionCompleteDelegate::CreateUObject(this, &ThisClass::OnCreateSessionComplete))
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -50,6 +53,22 @@ AUnrealMPTestingCharacter::AUnrealMPTestingCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+
+	IOnlineSubsystem* OnlineSubsystem = IOnlineSubsystem::Get();
+	if (OnlineSubsystem)
+	{
+		OnlineSessionInterface = OnlineSubsystem->GetSessionInterface();
+
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(
+				-1,
+				15.f,
+				FColor::Blue,
+				FString::Printf(TEXT("Found subsystem %s"), *OnlineSubsystem->GetSubsystemName().ToString())
+			);
+		}
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -129,25 +148,59 @@ void AUnrealMPTestingCharacter::MoveRight(float Value)
 	}
 }
 
-void AUnrealMPTestingCharacter::OpenLobby()
+void AUnrealMPTestingCharacter::CreateGameSession()
 {
-	UWorld* World = GetWorld();
-	if (World)
+	// Called when pressing 1 key
+	if (!OnlineSessionInterface.IsValid()) return;
+
+	// Guarantee that there is no session before creating one
+	auto ExistingSession = OnlineSessionInterface->GetNamedSession(NAME_GameSession);
+	if (ExistingSession != nullptr)
 	{
-		World->ServerTravel("Game/ThirdPerson/Maps/Lobby?listen");
+		OnlineSessionInterface->DestroySession(NAME_GameSession);
 	}
+
+	// Add our Delegate to CreateSessionCompeleDelegateHandle's OnlineSession Interface
+	OnlineSessionInterface->AddOnCreateSessionCompleteDelegate_Handle(CreateSessionCompleteDelegate);
+
+	// Create and config our SharedPtr to SessionSettings
+	TSharedPtr<FOnlineSessionSettings> SessionSettings = MakeShareable(new FOnlineSessionSettings());
+	SessionSettings->bIsLANMatch = false;
+	SessionSettings->NumPublicConnections = 4;
+	SessionSettings->bAllowJoinInProgress = true;
+	SessionSettings->bAllowJoinViaPresence = true;
+	SessionSettings->bShouldAdvertise = true;
+	SessionSettings->bUsesPresence = true;
+
+	// Finally, Create the session using local player UniqueID
+	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
+	OnlineSessionInterface->CreateSession(*LocalPlayer->GetPreferredUniqueNetId(),
+		NAME_GameSession,
+		*SessionSettings);
 }
 
-void AUnrealMPTestingCharacter::CallOpenLevel(const FString& Address)
+void AUnrealMPTestingCharacter::OnCreateSessionComplete(FName SessionName, bool bWasSuccessful)
 {
-	UGameplayStatics::OpenLevel(this, *Address);
-}
-
-void AUnrealMPTestingCharacter::CallClientTravel(const FString& Address)
-{
-	APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
-	if (PlayerController)
+	if (bWasSuccessful)
 	{
-		PlayerController->ClientTravel(Address, ETravelType::TRAVEL_Absolute);
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1,
+				15.f,
+				FColor::Green,
+				FString::Printf(TEXT("Created session: %s"), *SessionName.ToString())
+			);
+		}
 	}
+	else
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1,
+				15.f,
+				FColor::Red,
+				FString(TEXT("Failed to create session"))
+				);
+		}
+	}	
 }

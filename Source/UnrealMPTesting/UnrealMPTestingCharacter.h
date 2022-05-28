@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Interfaces/OnlineSessionInterface.h"
 #include "UnrealMPTestingCharacter.generated.h"
 
 UCLASS(config = Game)
@@ -62,13 +63,18 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
-	UFUNCTION(BlueprintCallable)
-		void OpenLobby();
+public:
 
-	UFUNCTION(BlueprintCallable)
-		void CallOpenLevel(const FString& Address);
+	// Pointer to the online session interface
+	IOnlineSessionPtr OnlineSessionInterface;
 
+protected:
 	UFUNCTION(BlueprintCallable)
-		void CallClientTravel(const FString& Address);
+		void CreateGameSession();
+
+	void OnCreateSessionComplete(FName SessionName, bool bWasSuccessful);
+
+private:
+	FOnCreateSessionCompleteDelegate CreateSessionCompleteDelegate;
 };
 
