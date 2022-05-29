@@ -13,24 +13,28 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MULTIPLAYERSESSIONS_Menu_generated_h
 
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_SPARSE_DATA
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_RPC_WRAPPERS \
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_SPARSE_DATA
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execJoinButtonClicked); \
 	DECLARE_FUNCTION(execHostButtonClicked); \
+	DECLARE_FUNCTION(execOnStartSession); \
+	DECLARE_FUNCTION(execOnDestroySession); \
 	DECLARE_FUNCTION(execOnCreateSession); \
 	DECLARE_FUNCTION(execMenuSetup);
 
 
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execJoinButtonClicked); \
 	DECLARE_FUNCTION(execHostButtonClicked); \
+	DECLARE_FUNCTION(execOnStartSession); \
+	DECLARE_FUNCTION(execOnDestroySession); \
 	DECLARE_FUNCTION(execOnCreateSession); \
 	DECLARE_FUNCTION(execMenuSetup);
 
 
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMenu(); \
 	friend struct Z_Construct_UClass_UMenu_Statics; \
@@ -39,7 +43,7 @@ public: \
 	DECLARE_SERIALIZER(UMenu)
 
 
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_INCLASS \
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesUMenu(); \
 	friend struct Z_Construct_UClass_UMenu_Statics; \
@@ -48,7 +52,7 @@ public: \
 	DECLARE_SERIALIZER(UMenu)
 
 
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_STANDARD_CONSTRUCTORS \
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMenu(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMenu) \
@@ -61,7 +65,7 @@ private: \
 public:
 
 
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMenu(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -74,25 +78,25 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMenu)
 
 
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_14_PROLOG
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_GENERATED_BODY_LEGACY \
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_15_PROLOG
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_SPARSE_DATA \
-	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_RPC_WRAPPERS \
-	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_INCLASS \
-	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_STANDARD_CONSTRUCTORS \
+	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_SPARSE_DATA \
+	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_RPC_WRAPPERS \
+	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_INCLASS \
+	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_GENERATED_BODY \
+#define FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_SPARSE_DATA \
-	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_INCLASS_NO_PURE_DECLS \
-	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_17_ENHANCED_CONSTRUCTORS \
+	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_SPARSE_DATA \
+	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_INCLASS_NO_PURE_DECLS \
+	FID_UnrealMPTesting_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
