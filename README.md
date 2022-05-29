@@ -5,4 +5,6 @@ It's a very simple plugin that works as a Subsystem to GameInstance class, offer
 
 I also added a WBP_Menu, which inherts from Menu class, to make the plugin usable out of the box. You can host and join sessions from this simples menu, as well as quit the game.
 
-If you wish to download the plugin only and not the entire developemnt of it, you can do it from this repository: https://github.com/jonasca23/MultiplayerSessionsUnrealPlugin
+## To use it:
+If you wish to download the plugin only and not the entire developemnt of it, you can do it from this repository: https://github.com/jonasca23/MultiplayerSessionsUnrealPlugin.
+I explain how to implement the plugin there.
