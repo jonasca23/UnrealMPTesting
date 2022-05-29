@@ -7,6 +7,15 @@
 #include "Interfaces/OnlineSessionInterface.h"
 #include "MultiplayerSessionsSubsystem.generated.h"
 
+//
+// Declaring our own custom delegates for the Menu Class bind it's callbacks to
+//
+// 
+// DYNAMIC means that this delegate can be serialized and can be used through blueprints (called event dispatchers)
+// MULTICAST means that multiple classes can bind their functions to this delegate
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMultiplayerOnCreateSessionComplete, bool, bWasSuccessful);
+
 /**
  * 
  */
@@ -25,6 +34,11 @@ public:
 	void JoinSession(const FOnlineSessionSearchResult& SessionResult);
 	void DestroySession();
 	void StartSession();
+
+	//
+	// Our own custom delegates for the Menu Class bind callbacks
+	//
+	FMultiplayerOnCreateSessionComplete MultiplayerOnCreateSessionComplete;
 
 protected:
 
