@@ -10,7 +10,16 @@
             "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\plugins\\multiplayersessions\\source\\multiplayersessions\\public\\multiplayersessions.h",
             "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\plugins\\multiplayersessions\\source\\multiplayersessions\\private\\multiplayersessionssubsystem.cpp",
             "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\plugins\\multiplayersessions\\source\\multiplayersessions\\public\\multiplayersessionssubsystem.h",
-            "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\plugins\\multiplayersessions\\intermediate\\build\\win64\\unrealeditor\\inc\\multiplayersessions\\multiplayersessionssubsystem.generated.h"
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\interfaces\\onlinesessioninterface.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesubsystemtypes.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesubsystemnames.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesubsystempackage.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinedelegatemacros.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinekeyvaluepair.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesubsystempackage.h",
+            "c:\\users\\jonas\\documents\\unrealprojects\\unrealmptesting\\plugins\\multiplayersessions\\intermediate\\build\\win64\\unrealeditor\\inc\\multiplayersessions\\multiplayersessionssubsystem.generated.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesubsystem.h",
+            "c:\\program files\\unreal\\ue_5.0\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesubsystemmodule.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
