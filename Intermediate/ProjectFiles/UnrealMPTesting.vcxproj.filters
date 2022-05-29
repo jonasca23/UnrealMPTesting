@@ -88,6 +88,12 @@
     <Filter Include="Source\UnrealMPTesting">
       <UniqueIdentifier>{3D9AFD99-EC24-3B9C-A422-200A9C9A551D}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UnrealMPTesting\LobbyGameMode.cpp">
+      <Filter>Source\UnrealMPTesting</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UnrealMPTesting\LobbyGameMode.h">
+      <Filter>Source\UnrealMPTesting</Filter>
+    </ClInclude>
     <None Include="..\..\Source\UnrealMPTesting\UnrealMPTesting.Build.cs">
       <Filter>Source\UnrealMPTesting</Filter>
     </None>

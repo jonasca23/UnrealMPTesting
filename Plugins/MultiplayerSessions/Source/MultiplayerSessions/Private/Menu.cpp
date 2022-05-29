@@ -180,5 +180,36 @@ void UMenu::OnDestroySession(bool bWasSuccessful)
 
 void UMenu::OnStartSession(bool bWasSuccessful)
 {
-
+	IOnlineSubsystem* Subsystem = IOnlineSubsystem::Get();
+	if (Subsystem)
+	{
+		IOnlineSessionPtr SessionInterface = Subsystem->GetSessionInterface();
+		if (SessionInterface.IsValid())
+		{
+			if (bWasSuccessful)
+			{
+				if (GEngine)
+				{
+					GEngine->AddOnScreenDebugMessage(
+						1,
+						15.f,
+						FColor::Green,
+						FString(TEXT("Successfully started session"))
+					);
+				}
+			}
+			else
+			{
+				if (GEngine)
+				{
+					GEngine->AddOnScreenDebugMessage(
+						1,
+						15.f,
+						FColor::Red,
+						FString(TEXT("Failed to start session"))
+					);
+				}
+			}			
+		}
+	}	
 }

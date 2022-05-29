@@ -60,7 +60,7 @@ AUnrealMPTestingCharacter::AUnrealMPTestingCharacter() :
 	if (OnlineSubsystem)
 	{
 		OnlineSessionInterface = OnlineSubsystem->GetSessionInterface();
-
+		/*
 		if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(
@@ -70,6 +70,7 @@ AUnrealMPTestingCharacter::AUnrealMPTestingCharacter() :
 				FString::Printf(TEXT("Found subsystem %s"), *OnlineSubsystem->GetSubsystemName().ToString())
 			);
 		}
+		*/
 	}
 }
 

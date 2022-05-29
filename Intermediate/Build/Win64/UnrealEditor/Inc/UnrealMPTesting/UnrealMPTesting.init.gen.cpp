@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeUnrealMPTesting_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xA63FD638,
-				0xF9D2603F,
+				0x3A70FF8D,
+				0xE981947C,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_UnrealMPTesting.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_UnrealMPTesting.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_UnrealMPTesting(Z_Construct_UPackage__Script_UnrealMPTesting, TEXT("/Script/UnrealMPTesting"), Z_Registration_Info_UPackage__Script_UnrealMPTesting, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xA63FD638, 0xF9D2603F));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_UnrealMPTesting(Z_Construct_UPackage__Script_UnrealMPTesting, TEXT("/Script/UnrealMPTesting"), Z_Registration_Info_UPackage__Script_UnrealMPTesting, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x3A70FF8D, 0xE981947C));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
