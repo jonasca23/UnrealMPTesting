@@ -1,6 +1,7 @@
 {
 	"SourceFiles": [
 		"C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Source\\UnrealMPTesting\\UnrealMPTesting.Build.cs",
+		"C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Plugins\\MultiplayerSessions\\Source\\MultiplayerSessions\\MultiplayerSessions.Build.cs",
 		"C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Source\\UnrealMPTesting.Target.cs",
 		"C:\\Users\\jonas\\Documents\\UnrealProjects\\UnrealMPTesting\\Source\\UnrealMPTestingEditor.Target.cs"
 	],
