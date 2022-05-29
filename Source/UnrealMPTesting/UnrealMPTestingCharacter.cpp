@@ -14,8 +14,10 @@
 //////////////////////////////////////////////////////////////////////////
 // AUnrealMPTestingCharacter
 
-AUnrealMPTestingCharacter::AUnrealMPTestingCharacter():
-	CreateSessionCompleteDelegate(FOnCreateSessionCompleteDelegate::CreateUObject(this, &ThisClass::OnCreateSessionComplete))
+AUnrealMPTestingCharacter::AUnrealMPTestingCharacter() :
+	CreateSessionCompleteDelegate(FOnCreateSessionCompleteDelegate::CreateUObject(this, &ThisClass::OnCreateSessionComplete)),
+	FindSessionsCompleteDelegate(FOnFindSessionsCompleteDelegate::CreateUObject(this, &ThisClass::OnFindSessionsComplete)),
+	JoinSessionCompleteDelegate(FOnJoinSessionCompleteDelegate::CreateUObject(this, &ThisClass::OnJoinSessionComplete))
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -135,12 +137,12 @@ void AUnrealMPTestingCharacter::MoveForward(float Value)
 
 void AUnrealMPTestingCharacter::MoveRight(float Value)
 {
-	if ( (Controller != nullptr) && (Value != 0.0f) )
+	if ((Controller != nullptr) && (Value != 0.0f))
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
-	
+
 		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
@@ -171,6 +173,8 @@ void AUnrealMPTestingCharacter::CreateGameSession()
 	SessionSettings->bAllowJoinViaPresence = true;
 	SessionSettings->bShouldAdvertise = true;
 	SessionSettings->bUsesPresence = true;
+	SessionSettings->bUseLobbiesIfAvailable = true;
+	SessionSettings->Set(FName("MatchType"), FString("FreeForAll"), EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
 
 	// Finally, Create the session using local player UniqueID
 	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
@@ -191,6 +195,12 @@ void AUnrealMPTestingCharacter::OnCreateSessionComplete(FName SessionName, bool 
 				FString::Printf(TEXT("Created session: %s"), *SessionName.ToString())
 			);
 		}
+
+		UWorld* World = GetWorld();
+		if (World)
+		{
+			World->ServerTravel(FString("/Game/ThirdPerson/Maps/Lobby?listen"));
+		}
 	}
 	else
 	{
@@ -200,7 +210,87 @@ void AUnrealMPTestingCharacter::OnCreateSessionComplete(FName SessionName, bool 
 				15.f,
 				FColor::Red,
 				FString(TEXT("Failed to create session"))
-				);
+			);
 		}
-	}	
+	}
+}
+
+void AUnrealMPTestingCharacter::OnFindSessionsComplete(bool bWasSuccessful)
+{
+	if (!OnlineSessionInterface.IsValid()) return;
+
+	for (auto Result : SessionSearch->SearchResults)
+	{
+		FString Id = Result.GetSessionIdStr();
+		FString User = Result.Session.OwningUserName;
+		FString MatchType;
+		Result.Session.SessionSettings.Get(FName("MatchType"), MatchType);
+
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1,
+				15.f,
+				FColor::Cyan,
+				FString::Printf(TEXT("Id: %s, User: %s"), *Id, *User)
+			);
+		}
+
+		if (MatchType == FString("FreeForAll"))
+		{
+			if (GEngine)
+			{
+				GEngine->AddOnScreenDebugMessage(-1,
+					15.f,
+					FColor::Cyan,
+					FString::Printf(TEXT("Joining MatchType: %s"), *MatchType)
+				);
+			}
+		}
+
+		OnlineSessionInterface->AddOnJoinSessionCompleteDelegate_Handle(JoinSessionCompleteDelegate);
+		const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
+		OnlineSessionInterface->JoinSession(*LocalPlayer->GetPreferredUniqueNetId(),
+			NAME_GameSession,
+			Result);
+	}
+}
+
+void AUnrealMPTestingCharacter::JoinGameSession()
+{
+	// Find game sessions
+	if (!OnlineSessionInterface.IsValid()) return;
+
+	OnlineSessionInterface->AddOnFindSessionsCompleteDelegate_Handle(FindSessionsCompleteDelegate);
+
+	SessionSearch = MakeShareable(new FOnlineSessionSearch());
+	SessionSearch->MaxSearchResults = 10000;
+	SessionSearch->bIsLanQuery = false;
+	SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
+
+	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
+	OnlineSessionInterface->FindSessions(*LocalPlayer->GetPreferredUniqueNetId(), SessionSearch.ToSharedRef());
+}
+
+void AUnrealMPTestingCharacter::OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result)
+{
+	if (!OnlineSessionInterface.IsValid()) return;
+
+	FString Address;
+	if (OnlineSessionInterface->GetResolvedConnectString(NAME_GameSession, Address))
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1,
+				15.f,
+				FColor::Yellow,
+				FString::Printf(TEXT("Connect string: %s"), *Address)
+			);
+		}
+
+		APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
+		if (PlayerController)
+		{
+			PlayerController->ClientTravel(Address, ETravelType::TRAVEL_Absolute);
+		}
+	}
 }

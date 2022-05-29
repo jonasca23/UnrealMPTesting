@@ -16,6 +16,13 @@ void EmptyLinkFunctionForGeneratedCodeUnrealMPTestingCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AUnrealMPTestingCharacter::execJoinGameSession)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->JoinGameSession();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AUnrealMPTestingCharacter::execCreateGameSession)
 	{
 		P_FINISH;
@@ -28,6 +35,7 @@ void EmptyLinkFunctionForGeneratedCodeUnrealMPTestingCharacter() {}
 		UClass* Class = AUnrealMPTestingCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CreateGameSession", &AUnrealMPTestingCharacter::execCreateGameSession },
+			{ "JoinGameSession", &AUnrealMPTestingCharacter::execJoinGameSession },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -50,6 +58,28 @@ void EmptyLinkFunctionForGeneratedCodeUnrealMPTestingCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AUnrealMPTestingCharacter_CreateGameSession_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AUnrealMPTestingCharacter_JoinGameSession_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AUnrealMPTestingCharacter_JoinGameSession_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UnrealMPTestingCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AUnrealMPTestingCharacter_JoinGameSession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AUnrealMPTestingCharacter, nullptr, "JoinGameSession", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AUnrealMPTestingCharacter_JoinGameSession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AUnrealMPTestingCharacter_JoinGameSession_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AUnrealMPTestingCharacter_JoinGameSession()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AUnrealMPTestingCharacter_JoinGameSession_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -87,6 +117,7 @@ void EmptyLinkFunctionForGeneratedCodeUnrealMPTestingCharacter() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AUnrealMPTestingCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AUnrealMPTestingCharacter_CreateGameSession, "CreateGameSession" }, // 2814832408
+		{ &Z_Construct_UFunction_AUnrealMPTestingCharacter_JoinGameSession, "JoinGameSession" }, // 1509428365
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUnrealMPTestingCharacter_Statics::Class_MetaDataParams[] = {
@@ -167,9 +198,9 @@ void EmptyLinkFunctionForGeneratedCodeUnrealMPTestingCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AUnrealMPTestingCharacter, AUnrealMPTestingCharacter::StaticClass, TEXT("AUnrealMPTestingCharacter"), &Z_Registration_Info_UClass_AUnrealMPTestingCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUnrealMPTestingCharacter), 1802465786U) },
+		{ Z_Construct_UClass_AUnrealMPTestingCharacter, AUnrealMPTestingCharacter::StaticClass, TEXT("AUnrealMPTestingCharacter"), &Z_Registration_Info_UClass_AUnrealMPTestingCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUnrealMPTestingCharacter), 1743855891U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_663115932(TEXT("/Script/UnrealMPTesting"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_3292038603(TEXT("/Script/UnrealMPTesting"),
 		Z_CompiledInDeferFile_FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -16,11 +16,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_13_SPARSE_DATA
 #define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execJoinGameSession); \
 	DECLARE_FUNCTION(execCreateGameSession);
 
 
 #define FID_UnrealMPTesting_Source_UnrealMPTesting_UnrealMPTestingCharacter_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execJoinGameSession); \
 	DECLARE_FUNCTION(execCreateGameSession);
 
 
